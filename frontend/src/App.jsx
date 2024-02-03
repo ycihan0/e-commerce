@@ -7,6 +7,8 @@ import Sliders from './components/Slider/Sliders'
 import './App.css'
 import Campaigns from './components/Campaigns/Campaigns'
 import Blogs from './components/Blogs/Blogs'
+import Brands from './components/Brands/Brands'
+import CampaignSingle from './components/CampaignSingle/CampaignSingle'
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
       <Campaigns/>
       <Products/>
       <Blogs/>
+      <Brands/>
+      <CampaignSingle/>
       <Policy/>
       <Footer/>
     </div>
