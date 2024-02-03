@@ -1,16 +1,16 @@
 import React from "react";
-import Contact from "../components/Contact/Contact";
+import Auth from "../components/Auth/Auth";
 import Header from "../components/Layout/Header/Header";
 import Footer from "../components/Layout/Footer/Footer";
 
-const ContactPage = () => {
+const AuthPage = () => {
   return (
     <React.Fragment>
       <Header />
-      <Contact/>
+      <Auth />
       <Footer />
     </React.Fragment>
   );
 };
 
-export default ContactPage;
+export default AuthPage;
