@@ -1,13 +1,7 @@
-import { Fragment } from "react"
-import Cart from "../components/Cart/Cart"
+import Cart from "../components/Cart/Cart";
 
 const CartPage = () => {
-  return (
-    <Fragment>
-        
-      <Cart/>
-    </Fragment>
-  )
-}
+  return <Cart />;
+};
 
-export default CartPage
+export default CartPage;
