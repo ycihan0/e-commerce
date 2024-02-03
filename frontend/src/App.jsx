@@ -6,6 +6,7 @@ import Products from './components/Products/Products'
 import Sliders from './components/Slider/Sliders'
 import './App.css'
 import Campaigns from './components/Campaigns/Campaigns'
+import Blogs from './components/Blogs/Blogs'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Products/>
       <Campaigns/>
       <Products/>
+      <Blogs/>
       <Policy/>
       <Footer/>
     </div>
