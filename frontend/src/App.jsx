@@ -12,14 +12,14 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 function App() {
   return (
     <React.Fragment>
-      <HomePage />
+      {/* <HomePage /> */}
       {/* <ShopPage /> */}
       {/* <ContactPage/> */}
       {/* <AuthPage /> */}
       {/* <CartPage/> */}
       {/* <BlogPage/> */}
       {/* <BlogDetailsPage/> */}
-      {/* <ProductDetailsPage/> */}
+      <ProductDetailsPage/>
     </React.Fragment>
   );
 }
