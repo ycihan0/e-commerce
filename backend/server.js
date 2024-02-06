@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = express();
+const mainRoute=require("./routes/index.js");
 const port = 5000;
 
 dotenv.config();
@@ -14,6 +15,8 @@ const connect = async () => {
     throw error;
   }
 };
+
+app.use("/api", mainRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello Express.js");
