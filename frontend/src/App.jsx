@@ -16,10 +16,10 @@ function App() {
       {/* <ShopPage /> */}
       {/* <ContactPage/> */}
       {/* <AuthPage /> */}
-      {/* <CartPage/> */}
+      <CartPage />
       {/* <BlogPage/> */}
       {/* <BlogDetailsPage/> */}
-      <ProductDetailsPage/>
+      {/* <ProductDetailsPage/> */}
     </React.Fragment>
   );
 }
