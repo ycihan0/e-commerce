@@ -42,7 +42,7 @@ const cartTotals = fastCargoChecked
                       type="checkbox"
                       id="fast-cargo"
                       checked={fastCargoChecked}
-                      onChange={() => setFastCargoChecked(true)}
+                      onChange={() => setFastCargoChecked(!fastCargoChecked)}
                     />
                   </label>
                 </li>
