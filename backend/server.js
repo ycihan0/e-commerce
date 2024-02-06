@@ -1,10 +1,29 @@
-const express =require("express");
-const app=express();
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const app = express();
+const port = 5000;
 
-app.get("/",(req, res)=>{
-    res.send("Hello Express.js");
-} );
+dotenv.config();
 
-app.listen(500,()=>{
-    console.log(`sunucu ${5000} portunda çalışıyor.`)
-})
+const connect = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("Connected to mongoDb");
+  } catch (error) {
+    throw error;
+  }
+};
+
+app.get("/", (req, res) => {
+  res.send("Hello Express.js");
+});
+
+app.get("/api", (req, res) => {
+  res.send("This is API Route.");
+});
+
+app.listen(port, () => {
+  connect();
+  console.log(`Sunucu ${port} portunda çalışıyor.`);
+});
