@@ -23,14 +23,6 @@ app.use(express.json());
 
 app.use("/api", mainRoute);
 
-app.get("/", (req, res) => {
-  res.send("Hello Express.js");
-});
-
-app.get("/api", (req, res) => {
-  res.send("This is API Route.");
-});
-
 app.listen(port, () => {
   connect();
   console.log(`Sunucu ${port} portunda çalışıyor.`);

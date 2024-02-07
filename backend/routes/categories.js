@@ -51,17 +51,35 @@ router.put("/:categoryId", async (req, res) => {
     if (!existingCategory) {
       return res.status(404).json({ error: "Category not found." });
     }
-    //Eğer Idyi bulamazsan hata dön;
+    //If you can't find Id, return error;
 
     const updatedCategory = await Category.findByIdAndUpdate(
       categoryId,
       updates,
-      { new: true } //güncellenmiş değeri gönder
+      { new: true } //send updated value
     );
     res.status(200).json(updatedCategory);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "error: Server error." });
+  }
+});
+
+//category delete
+router.delete("/:categoryId", async (req, res) => {
+  try {
+    const categoryId = req.params.categoryId;
+
+    const deletedCategory = await Category.findByIdAndDelete(categoryId);
+
+    if (!deletedCategory) {
+      return res.status(404).json({ error: "Category not found." });
+    }
+
+    res.status(200).json(deletedCategory);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server error." });
   }
 });
 
