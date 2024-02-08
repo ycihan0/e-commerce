@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Category = require("../models/Category.js");
+const Coupon = require("../models/Coupon.js");
 
 //create a new category
 router.post("/", async (req, res) => {
@@ -12,6 +13,7 @@ router.post("/", async (req, res) => {
     res.status(201).json(newCategory); //başarılı olursa cevap dön 201 yeni oluşma başarılı kodu
   } catch (error) {
     console.log(error);
+    res.status(500).json({ error: "Server error." });
   }
 });
 
@@ -82,5 +84,7 @@ router.delete("/:categoryId", async (req, res) => {
     res.status(500).json({ error: "Server error." });
   }
 });
+
+
 
 module.exports = router;
