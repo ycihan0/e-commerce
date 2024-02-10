@@ -45,7 +45,7 @@ const CreateCategoryPage = () => {
           rules={[
             {
               required: true,
-              message: "Please input category nmae.",
+              message: "Please input category name.",
             },
           ]}
         >
