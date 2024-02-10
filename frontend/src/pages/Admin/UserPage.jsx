@@ -1,7 +1,7 @@
 import { Button, Popconfirm, Table, message } from "antd";
 import { useCallback, useEffect, useState } from "react";
 
-const AminUserPage = () => {
+const UserPage = () => {
   const [dataSource, setDatasource] = useState([]);
   const [loading, setLoading] = useState(false);
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
@@ -103,4 +103,4 @@ const AminUserPage = () => {
   );
 };
 
-export default AminUserPage;
+export default UserPage;
