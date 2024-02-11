@@ -3,8 +3,10 @@ import Gallery from "./Gallery/Gallery";
 import Info from "./Info/Info";
 import "./ProductDetails.css";
 import Tabs from "./Tabs/Tabs";
+import Proptypes from "prop-types";
 
-const ProductDetails = () => {
+
+const ProductDetails = ({singleProduct}) => {
   return (
     <section className="single-product">
       <div className="container">
@@ -12,11 +14,11 @@ const ProductDetails = () => {
           <Breadcrumb />
           <div className="single-content">
             <main className="site-main">
-              <Gallery />
-              <Info />
+              <Gallery singleProduct={singleProduct}/>
+              <Info singleProduct={singleProduct}/>
             </main>
           </div>
-          <Tabs />
+          <Tabs singleProduct={singleProduct}/>
         </div>
       </div>
     </section>
@@ -24,3 +26,8 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
+
+ProductDetails.propTypes = {
+  singleProduct: Proptypes.object
+};
+

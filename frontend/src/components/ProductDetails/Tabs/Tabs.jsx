@@ -1,29 +1,42 @@
 import "./Tabs.css";
 import Reviews from "../../Reviews/Reviews";
 import { useState } from "react";
+import Proptypes from "prop-types";
 
-const Tabs = () => {
+const Tabs = ({singleProduct}) => {
   const [activeTab, setActiveTab] = useState("desc");
-const handleTabClick = (e, tab) => {
-  e.preventDefault();
-  setActiveTab(tab)
-}
+  const handleTabClick = (e, tab) => {
+    e.preventDefault();
+    setActiveTab(tab);
+  };
 
   return (
     <div className="single-tabs">
       <ul className="tab-list">
         <li>
-          <a href="#" className={`tab-button ${activeTab==="desc"?"active": ""}`} onClick={(e)=>handleTabClick(e,"desc")}>
+          <a
+            href="#"
+            className={`tab-button ${activeTab === "desc" ? "active" : ""}`}
+            onClick={(e) => handleTabClick(e, "desc")}
+          >
             Description
           </a>
         </li>
         <li>
-          <a href="#"className={`tab-button ${activeTab==="info"?"active": ""}`} onClick={(e)=>handleTabClick(e,"info")}>
+          <a
+            href="#"
+            className={`tab-button ${activeTab === "info" ? "active" : ""}`}
+            onClick={(e) => handleTabClick(e, "info")}
+          >
             Additional information
           </a>
         </li>
         <li>
-          <a href="#"className={`tab-button ${activeTab==="reviews"?"active": ""}`} onClick={(e)=>handleTabClick(e,"reviews")}>
+          <a
+            href="#"
+            className={`tab-button ${activeTab === "reviews" ? "active" : ""}`}
+            onClick={(e) => handleTabClick(e, "reviews")}
+          >
             Reviews
           </a>
         </li>
@@ -35,25 +48,10 @@ const handleTabClick = (e, tab) => {
           }`}
           id="desc"
         >
-          <p>
-            Quisque varius diam vel metus mattis, id aliquam diam rhoncus. Proin
-            vitae magna in dui finibus malesuada et at nulla. Morbi elit ex,
-            viverra vitae ante vel, blandit feugiat ligula. Fusce fermentum
-            iaculis nibh, at sodales leo maximus a. Nullam ultricies sodales
-            nunc, in pellentesque lorem mattis quis. Cras imperdiet est in nunc
-            tristique lacinia. Nullam aliquam mauris eu accumsan tincidunt.
-            Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.
-          </p>
-          <br />
-          <p>
-            Quisque varius diam vel metus mattis, id aliquam diam rhoncus. Proin
-            vitae magna in dui finibus malesuada et at nulla. Morbi elit ex,
-            viverra vitae ante vel, blandit feugiat ligula. Fusce fermentum
-            iaculis nibh, at sodales leo maximus a. Nullam ultricies sodales
-            nunc, in pellentesque lorem mattis quis. Cras imperdiet est in nunc
-            tristique lacinia. Nullam aliquam mauris eu accumsan tincidunt.
-            Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.
-          </p>
+          <p
+            className="product-description"
+            dangerouslySetInnerHTML={{ __html: singleProduct.description }}
+          ></p>
         </div>
         <div
           className={`tab-panel-information content ${
@@ -76,7 +74,10 @@ const handleTabClick = (e, tab) => {
               <tr>
                 <th>Size</th>
                 <td>
-                  <p>XXS, XS, S, M, L, XL, XXL</p>
+                  <p>{singleProduct.sizes.map((item,index)=>(
+                    <span key={index}>{item.toUpperCase()} 
+                    {index <singleProduct.sizes.length-1 && ",  "} </span>
+                  ))}</p>
                 </td>
               </tr>
             </tbody>
@@ -84,6 +85,7 @@ const handleTabClick = (e, tab) => {
         </div>
         <Reviews
           active={activeTab === "reviews" ? "content active" : "content"}
+          singleProduct={singleProduct}
         />
       </div>
     </div>
@@ -91,3 +93,6 @@ const handleTabClick = (e, tab) => {
 };
 
 export default Tabs;
+Tabs.propTypes = {
+  singleProduct: Proptypes.object,
+};

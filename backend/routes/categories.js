@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Category = require("../models/Category.js");
-const Coupon = require("../models/Coupon.js");
+
 
 //create a new category
 router.post("/", async (req, res) => {

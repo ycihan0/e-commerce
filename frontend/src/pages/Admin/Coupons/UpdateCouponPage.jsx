@@ -1,16 +1,16 @@
-import { Button, Form, Input, Spin, message } from "antd";
+import { Button, Form, Input, InputNumber, Spin, message } from "antd";
 import {  useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const UpdateCategoryPage = () => {
+const UpdateCouponPage = () => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const params = useParams();
-  const categoryId = params.id;
+  const couponId = params.id;
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const onFinish = async (values) => {
     try {
-      const response = await fetch(`${apiUrl}/api/categories/${categoryId}`, {
+      const response = await fetch(`${apiUrl}/api/coupons/${couponId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -31,10 +31,10 @@ const UpdateCategoryPage = () => {
   };
 
   useEffect(() => {
-    const fetchSingleCategory = async () => {
+    const fetchSingleCoupon= async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${apiUrl}/api/categories/${categoryId}`);
+        const response = await fetch(`${apiUrl}/api/coupons/${couponId}`);
 
         if (!response.ok) {
           throw new Error("Error fetching data");
@@ -42,8 +42,8 @@ const UpdateCategoryPage = () => {
         const data = await response.json();
         if (data) {
           form.setFieldsValue({
-            name: data.name,
-            img: data.img,
+            code: data.code,
+            discountPercent: data.discountPercent,
           });
         }
       } catch (error) {
@@ -52,8 +52,8 @@ const UpdateCategoryPage = () => {
         setLoading(false);
       }
     };
-    fetchSingleCategory();
-  }, [apiUrl, categoryId, form]);
+    fetchSingleCoupon();
+  }, [apiUrl, couponId, form]);
 
   return (
     <Spin spinning={loading}>
@@ -65,16 +65,15 @@ const UpdateCategoryPage = () => {
           remember: true,
         }}
         onFinish={onFinish}
-        // onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item
-          label="Category name"
-          name="name"
+          label="Coupon code"
+          name="code"
           rules={[
             {
               required: true,
-              message: "Please input category name.",
+              message: "Please input coupon code.",
             },
           ]}
         >
@@ -82,16 +81,16 @@ const UpdateCategoryPage = () => {
         </Form.Item>
 
         <Form.Item
-          label="Category Image (Link)"
-          name="img"
+          label="Discound Precent"
+          name="discountPercent"
           rules={[
             {
               required: true,
-              message: "Please input category image link.",
+              message:"Please input discound percent.",
             },
           ]}
         >
-          <Input />
+          <InputNumber />
         </Form.Item>
 
         <Button type="primary" htmlType="submit">
@@ -102,4 +101,4 @@ const UpdateCategoryPage = () => {
   );
 };
 
-export default UpdateCategoryPage;
+export default UpdateCouponPage;
