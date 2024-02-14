@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartProvider";
 
 const CartItem = ({ cartItem }) => {
-  console.log(cartItem.name);
    const { removeFromCart } = useContext(CartContext);
   return (
     <tr className="cart-item">
@@ -12,7 +11,7 @@ const CartItem = ({ cartItem }) => {
         <img src={cartItem.img[0]} alt="" />
         <i
           className="bi bi-x delete-cart"
-          onClick={() => removeFromCart(cartItem.id)}
+          onClick={() => removeFromCart(cartItem._id)}
         ></i>
       </td>
       <td>{cartItem.name}</td>
