@@ -8,7 +8,7 @@ import AuthPage from "./pages/AuthPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import BlogDetailsPage from "./pages/BlogDetailsPage";
 import UserPage from "./pages/Admin/UserPage";
-import "./App.css";
+import OrderPage from "./pages/Admin/OrderPage";
 import CategoryPage from "./pages/Admin/Categories/CategoryPage";
 import UpdateCategoryPage from "./pages/Admin/Categories/UpdateCategoryPage";
 import CreateCategoryPage from "./pages/Admin/Categories/CreateCategoryPage";
@@ -18,6 +18,8 @@ import UpdateProductPage from "./pages/Admin/Products/UpdateProductPage";
 import CouponPage from "./pages/Admin/Coupons/CouponPage";
 import CreateCouponPage from "./pages/Admin/Coupons/CreateCouponPage";
 import UpdateCouponPage from "./pages/Admin/Coupons/UpdateCouponPage";
+import Success from "./pages/Success";
+import "./App.css";
 function App() {
   return (
     <Routes>
@@ -29,6 +31,7 @@ function App() {
       <Route path="/auth" element={<AuthPage />} />
       <Route path="/product/:id" element={<ProductDetailsPage />} />
       <Route path="/blog/:id" element={<BlogDetailsPage />} />
+      <Route path="/success" element={<Success />} />
       <Route path="/admin/*">
         <Route path="users" element={<UserPage />} />
         <Route path="categories" element={<CategoryPage />} />
@@ -40,6 +43,7 @@ function App() {
         <Route path="coupons" element={<CouponPage />} />
         <Route path="coupons/create" element={<CreateCouponPage />} />
         <Route path="coupons/update/:id" element={<UpdateCouponPage/>} />
+        <Route path="orders" element={<OrderPage />} />
       </Route>
     </Routes>
   );
