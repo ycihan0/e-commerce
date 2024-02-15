@@ -34,7 +34,7 @@ const OrderPage = () => {
           const {data} = await response.json();
           setDatasource(data);
         } else {
-          message.error("Categories failed");
+          message.error("Orders failed");
         }
       } catch (error) {
         console.log(error);
