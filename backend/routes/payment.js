@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
 
   try {
     const session = await stripe.checkout.sessions.create({
-      customer_email:user.email,
+      customer_email:user.email,//stripe.com da customer email izin verilmiş olması lazım
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",

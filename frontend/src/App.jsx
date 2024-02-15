@@ -15,6 +15,7 @@ import CreateCategoryPage from "./pages/Admin/Categories/CreateCategoryPage";
 import CreateProductPage from "./pages/Admin/Products/CreateProductPage";
 import ProductPage from "./pages/Admin/Products/ProductPage";
 import UpdateProductPage from "./pages/Admin/Products/UpdateProductPage";
+import DashboardPage from "./pages/Admin/DashboardPage";
 import CouponPage from "./pages/Admin/Coupons/CouponPage";
 import CreateCouponPage from "./pages/Admin/Coupons/CreateCouponPage";
 import UpdateCouponPage from "./pages/Admin/Coupons/UpdateCouponPage";
@@ -33,6 +34,7 @@ function App() {
       <Route path="/blog/:id" element={<BlogDetailsPage />} />
       <Route path="/success" element={<Success />} />
       <Route path="/admin/*">
+        <Route index element={<DashboardPage/>} />
         <Route path="users" element={<UserPage />} />
         <Route path="categories" element={<CategoryPage />} />
         <Route path="categories/create" element={<CreateCategoryPage />} />
@@ -42,7 +44,7 @@ function App() {
         <Route path="products/update/:id" element={<UpdateProductPage />} />
         <Route path="coupons" element={<CouponPage />} />
         <Route path="coupons/create" element={<CreateCouponPage />} />
-        <Route path="coupons/update/:id" element={<UpdateCouponPage/>} />
+        <Route path="coupons/update/:id" element={<UpdateCouponPage />} />
         <Route path="orders" element={<OrderPage />} />
       </Route>
     </Routes>
