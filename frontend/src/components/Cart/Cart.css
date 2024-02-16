@@ -214,7 +214,16 @@
   /*? collaterals end  */
   
   /*! cart form end  */
+  .cart-totals .ant-spin {
+    display: flex;
+    justify-content: center;
+  }
   
+  .cart-totals .ant-spin .ant-spin-dot {
+    position: relative !important;
+    inset-inline-start: unset !important;
+    margin: unset !important;
+  }
   /* responsive */
   
   @media (max-width: 992px) {
