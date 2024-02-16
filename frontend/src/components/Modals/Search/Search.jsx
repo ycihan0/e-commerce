@@ -2,6 +2,7 @@ import { message } from "antd";
 import "./Search.css";
 import Proptypes from "prop-types";
 import { useState } from "react";
+import Link from "antd/es/typography/Link";
 
 const Search = ({ isSearchShow, setIsSearchShow }) => {
   const handleCloseModal = () => {
@@ -75,8 +76,8 @@ const Search = ({ isSearchShow, setIsSearchShow }) => {
                 😞product not found😞
               </a>
             )}
-            {searchResults?.map((resultItem) => (
-              <a href="#" className="result-item" key={resultItem._id}>
+            {searchResults?.length>0 && searchResults?.map((resultItem) => (
+              <Link to={`product/${resultItem._id}`} href="#" className="result-item" key={resultItem._id}>
                 <img src={resultItem.img[0]} className="search-thumb" alt="" />
                 <div className="search-info">
                   <h4>{resultItem.name}</h4>
@@ -85,7 +86,7 @@ const Search = ({ isSearchShow, setIsSearchShow }) => {
                     ${resultItem.price.current.toFixed(2)}
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
