@@ -8,7 +8,7 @@ header {
   }
   
   .global-notification {
-    background-color: #1367ef;
+    background-color: #f07423;
     padding: 14px 0;
     text-align: center;
     font-size: 12px;
@@ -67,7 +67,7 @@ header {
     content: "";
     width: 0;
     height: 1px;
-    background-color: #1367ef;
+    background-color: #f07423;
     position: absolute;
     bottom: -2px;
     left: 50%;
@@ -114,7 +114,7 @@ header {
   .header-right .header-cart-link .header-cart-count {
     width: 16px;
     height: 16px;
-    background-color: #1367ef;
+    background-color: #f07423;
     color: white;
     font-size: 10px;
     border-radius: 100%;
@@ -155,7 +155,7 @@ header {
   }
   
   header .menu-dropdown-content a:hover {
-    color: #1367ef;
+    color: #f07423;
   }
   
   .header-center .menu-list .menu-list-item:hover .menu-dropdown-wrapper {
@@ -192,6 +192,7 @@ header {
     font-weight: 500;
     margin-bottom: 10px;
   }
+
   
   .megamenu-wrapper .megamenu-menu-list {
     display: flex;
@@ -201,6 +202,10 @@ header {
   
   .megamenu-wrapper .megamenu-menu-list a {
     font-size: 14px;
+  }
+
+  .megamenu-wrapper .megamenu-menu-list a:hover {
+    color: #f07423;
   }
   
   .megamenu-wrapper .megamenu-single-title {

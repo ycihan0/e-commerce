@@ -45,6 +45,9 @@ p {
   font-weight: 500;
   display: flex;
 }
+.logo-pic{
+  max-width: 110px;
+}
 
 button {
   cursor: pointer;

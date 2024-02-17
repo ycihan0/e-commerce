@@ -27,7 +27,7 @@ const Header = ({ setIsSearchShow }) => {
             </div>
             <div className="header-left">
               <Link to={"/"} className="logo">
-                LOGO
+                <img src="./img/logo.png" className="logo-pic"/>
               </Link>
             </div>
             <div className="header-center" id="sidebar">
