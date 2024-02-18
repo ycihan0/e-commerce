@@ -109,22 +109,22 @@ const AdminLayout = ({ children }) => {
       key: "11",
       icon: <PicCenterOutlined />,
       label: "Hero",
-      path: "/admin/coupons",
+      path: "/admin/sliders",
       children: [
         {
           key: "12",
           label: "Slider List",
-          path: "/admin/coupons",
+          path: "/admin/sliders",
           onClick: () => {
-            navigate(`/admin/coupons`);
+            navigate(`/admin/sliders`);
           },
         },
         {
           key: "13",
           label: "Add New Slider",
-          path: "/admin/coupons/create",
+          path: "/admin/sliders/create",
           onClick: () => {
-            navigate("/admin/coupons/create");
+            navigate("/admin/sliders/create");
           },
         },
       ],

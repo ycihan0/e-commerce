@@ -1,16 +1,18 @@
-import { Button, Form, Input, InputNumber, Spin, message } from "antd";
+import { Button, Form, Input, Spin, message } from "antd";
 import {  useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 
-const UpdateCouponPage = () => {
+const UpdateSliderPage = () => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const params = useParams();
-  const couponId = params.id;
+  const sliderId = params.id;
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
+  const navigate=useNavigate();
+
   const onFinish = async (values) => {
     try {
-      const response = await fetch(`${apiUrl}/api/coupons/${couponId}`, {
+      const response = await fetch(`${apiUrl}/api/sliders/${sliderId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -20,6 +22,7 @@ const UpdateCouponPage = () => {
 
       if (response.ok) {
         message.success("category updated successfully");
+        navigate(`/admin/sliders`)
       } else {
         message.error("category updating error");
       }
@@ -31,10 +34,10 @@ const UpdateCouponPage = () => {
   };
 
   useEffect(() => {
-    const fetchSingleCoupon= async () => {
+    const fetchSingleSlider= async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${apiUrl}/api/coupons/${couponId}`);
+        const response = await fetch(`${apiUrl}/api/sliders/${sliderId}`);
 
         if (!response.ok) {
           throw new Error("Error fetching data");
@@ -42,8 +45,7 @@ const UpdateCouponPage = () => {
         const data = await response.json();
         if (data) {
           form.setFieldsValue({
-            code: data.code,
-            discountPercent: data.discountPercent,
+            img: data.img
           });
         }
       } catch (error) {
@@ -52,8 +54,8 @@ const UpdateCouponPage = () => {
         setLoading(false);
       }
     };
-    fetchSingleCoupon();
-  }, [apiUrl, couponId, form]);
+    fetchSingleSlider();
+  }, [apiUrl, sliderId, form]);
 
   return (
     <Spin spinning={loading}>
@@ -68,31 +70,19 @@ const UpdateCouponPage = () => {
         autoComplete="off"
       >
         <Form.Item
-          label="Coupon code"
-          name="code"
+          label="Slider Image Url"
+          name="img"
           rules={[
             {
               required: true,
-              message: "Please input coupon code.",
+              message: "Please input slider url.",
             },
           ]}
         >
           <Input />
         </Form.Item>
 
-        <Form.Item
-          label="Discound Precent"
-          name="discountPercent"
-          rules={[
-            {
-              required: true,
-              message:"Please input discound percent.",
-            },
-          ]}
-        >
-          <InputNumber />
-        </Form.Item>
-
+     
         <Button type="primary" htmlType="submit">
           Update
         </Button>
@@ -101,4 +91,4 @@ const UpdateCouponPage = () => {
   );
 };
 
-export default UpdateCouponPage;
+export default UpdateSliderPage;

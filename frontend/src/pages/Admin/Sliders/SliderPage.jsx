@@ -14,7 +14,7 @@ const SliderPage = () => {
       dataIndex: "img",
       key: "img",
       render: (imgSrc) => (
-        <img src={imgSrc[0]} alt="Image" style={{ width: "100px" }} />
+        <img src={imgSrc} alt="Image" style={{ width: "100px" }} />
       ),
     },
     {
@@ -23,13 +23,13 @@ const SliderPage = () => {
       key: "actions",
       render: (_, record) => (
         <Space>
-          <Button type="primary" onClick={()=>navigate(`/admin/coupons/update/${record._id}`)}>Update</Button>
+          <Button type="primary" onClick={()=>navigate(`/admin/sliders/update/${record._id}`)}>Update</Button>
           <Popconfirm
-            title="Delete Category"
-            description="Are you sure to delete this category?"
+            title="Delete Image"
+            description="Are you sure to delete this image?"
             okText="Yes"
             cancelText="No"
-            onConfirm={() => deleteCoupon(record._id)}
+            onConfirm={() => deleteSlider(record._id)}
           >
             <Button type="primary" danger>
               Delete
@@ -40,16 +40,16 @@ const SliderPage = () => {
     },
   ];
 
-  const fetchCoupons = useCallback(async () => {
+  const fetchSliders = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${apiUrl}/api/coupons`);
+      const response = await fetch(`${apiUrl}/api/sliders`);
 
       if (response.ok) {
         const data = await response.json();
         setDatasource(data);
       } else {
-        message.error("Coupon failed");
+        message.error("Slider failed");
       }
     } catch (error) {
       console.log(error);
@@ -58,17 +58,17 @@ const SliderPage = () => {
     }
   }, [apiUrl]);
 
-  const deleteCoupon = async (couponId) => {
+  const deleteSlider = async (sliderId) => {
     try {
-      const response = await fetch(`${apiUrl}/api/coupons/${couponId}`, {
+      const response = await fetch(`${apiUrl}/api/sliders/${sliderId}`, {
         method: "DELETE",
       });
 
       if (response.ok) {
-        message.success("Coupon deleted");
-        fetchCoupons();
+        message.success("Image deleted");
+        fetchSliders();
       } else {
-        message.error("Delete coupon failed.");
+        message.error("Delete image failed.");
       }
     } catch (error) {
       console.log(error);
@@ -76,8 +76,8 @@ const SliderPage = () => {
   };
 
   useEffect(() => {
-    fetchCoupons();
-  }, [fetchCoupons]);
+    fetchSliders();
+  }, [fetchSliders]);
   return (
     <Table
       dataSource={dataSource}

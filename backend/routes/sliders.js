@@ -25,20 +25,20 @@ router.get("/", async (req, res) => {
   }
 });
 
-// //bring one Slider (Read-Sigle by slider ID)
-// router.get("/:sliderId", async (req, res) => {
-//   try {
-//     const sliderId = req.params.sliderId;
-//     const slider = await Slider.findById(sliderId);
-//     if (!slider) {
-//       return res.status(404).json({ error: "Slider not found." });
-//     }
-//     res.status(200).json(slider);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ error: "Server error." });
-//   }
-// });
+//bring one Slider (Read-Sigle by slider ID)
+router.get("/:sliderId", async (req, res) => {
+  try {
+    const sliderId = req.params.sliderId;
+    const slider = await Slider.findById(sliderId);
+    if (!slider) {
+      return res.status(404).json({ error: "Slider not found." });
+    }
+    res.status(200).json(slider);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server error." });
+  }
+});
 
 // //bring one Slider (Read-Sigle by slider code)
 // router.get("/code/:sliderCode", async (req, res) => {

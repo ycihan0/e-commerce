@@ -20,7 +20,7 @@ router.use("/auth", authRoute);
 router.use("/coupons", couponRoute);
 router.use("/users", userRoute);
 router.use("/payment", paymentRoute);
-router.use("/slider", sliderRoute);
+router.use("/sliders", sliderRoute);
 
 
 module.exports = router;

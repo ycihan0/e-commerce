@@ -1,13 +1,13 @@
-import { Button, Form, Input, InputNumber, Spin, message } from "antd";
+import { Button, Form, Input,  Spin, message } from "antd";
 import { useState } from "react";
 
-const CreateCouponPage = () => {
+const CreateSliderPage = () => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const onFinish = async (values) => {
     try {
-      const response = await fetch(`${apiUrl}/api/coupons`, {
+      const response = await fetch(`${apiUrl}/api/sliders`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -16,13 +16,13 @@ const CreateCouponPage = () => {
       });
 
       if (response.ok) {
-        message.success("coupon created successfully");
+        message.success("slider created successfully");
         form.resetFields();
       } else {
-        message.error("coupon creating error");
+        message.error("slider creating error");
       }
     } catch (error) {
-      console.log("coupon creating error:", error);
+      console.log("slider creating error:", error);
     } finally {
       setLoading(false);
     }
@@ -40,8 +40,8 @@ const CreateCouponPage = () => {
         onFinish={onFinish}
       >
         <Form.Item
-          label="Coupon code"
-          name="code"
+          label="Image Url"
+          name="img"
           rules={[
             {
               required: true,
@@ -52,19 +52,6 @@ const CreateCouponPage = () => {
           <Input />
         </Form.Item>
 
-        <Form.Item
-          label="Discount Percent"
-          name="discountPercent"
-          rules={[
-            {
-              required: true,
-              message: "Please input coupon percent.",
-            },
-          ]}
-        >
-          <InputNumber />
-        </Form.Item>
-
         <Button type="primary" htmlType="submit">
           Create
         </Button>
@@ -73,4 +60,4 @@ const CreateCouponPage = () => {
   );
 };
 
-export default CreateCouponPage;
+export default CreateSliderPage;

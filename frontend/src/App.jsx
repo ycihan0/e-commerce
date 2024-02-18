@@ -21,6 +21,9 @@ import CreateCouponPage from "./pages/Admin/Coupons/CreateCouponPage";
 import UpdateCouponPage from "./pages/Admin/Coupons/UpdateCouponPage";
 import Success from "./pages/Success";
 import "./App.css";
+import SliderPage from "./pages/Admin/Sliders/SliderPage";
+import UpdateSliderPage from "./pages/Admin/Sliders/UpdateSliderPage";
+import CreateSliderPage from "./pages/Admin/Sliders/CreateSliderPage";
 function App() {
   return (
     <Routes>
@@ -46,6 +49,9 @@ function App() {
         <Route path="coupons/create" element={<CreateCouponPage />} />
         <Route path="coupons/update/:id" element={<UpdateCouponPage />} />
         <Route path="orders" element={<OrderPage />} />
+        <Route path="sliders" element={<SliderPage />} />
+        <Route path="sliders/create" element={<CreateSliderPage />} />
+        <Route path="sliders/update/:id" element={<UpdateSliderPage />} />
       </Route>
     </Routes>
   );
