@@ -8,6 +8,7 @@ import {
   DashboardOutlined,
   ShoppingCartOutlined,
   AppstoreOutlined,
+  PicCenterOutlined
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
@@ -35,12 +36,12 @@ const AdminLayout = ({ children }) => {
     {
       key: "2",
       icon: <AppstoreOutlined />,
-      label: "Kategoriler",
+      label: "Categories",
       path: "/",
       children: [
         {
           key: "3",
-          label: "Kategori Listesi",
+          label: "Category List",
           path: "/admin/categories",
           onClick: () => {
             navigate(`/admin/categories`);
@@ -48,7 +49,7 @@ const AdminLayout = ({ children }) => {
         },
         {
           key: "4",
-          label: "Yeni Kategori Oluştur",
+          label: "Add New Category",
           path: "/admin/categories/create",
           onClick: () => {
             navigate("/admin/categories/create");
@@ -59,12 +60,12 @@ const AdminLayout = ({ children }) => {
     {
       key: "5",
       icon: <LaptopOutlined />,
-      label: "Ürünler",
+      label: "Products",
       path: "/",
       children: [
         {
           key: "6",
-          label: "Ürün Listesi",
+          label: "Product List",
           path: "/admin/products",
           onClick: () => {
             navigate(`/admin/products`);
@@ -72,7 +73,7 @@ const AdminLayout = ({ children }) => {
         },
         {
           key: "7",
-          label: "Yeni Ürün Oluştur",
+          label: "Add New Product",
           path: "/admin/products/create",
           onClick: () => {
             navigate("/admin/products/create");
@@ -83,12 +84,12 @@ const AdminLayout = ({ children }) => {
     {
       key: "8",
       icon: <BarcodeOutlined />,
-      label: "Kuponlar",
+      label: "Coupons",
       path: "/admin/coupons",
       children: [
         {
           key: "9",
-          label: "Kupon Listesi",
+          label: "Coupon List",
           path: "/admin/coupons",
           onClick: () => {
             navigate(`/admin/coupons`);
@@ -96,7 +97,7 @@ const AdminLayout = ({ children }) => {
         },
         {
           key: "10",
-          label: "Yeni Kupon Oluştur",
+          label: "Add New Coupon",
           path: "/admin/coupons/create",
           onClick: () => {
             navigate("/admin/coupons/create");
@@ -106,26 +107,50 @@ const AdminLayout = ({ children }) => {
     },
     {
       key: "11",
+      icon: <PicCenterOutlined />,
+      label: "Hero",
+      path: "/admin/coupons",
+      children: [
+        {
+          key: "12",
+          label: "Slider List",
+          path: "/admin/coupons",
+          onClick: () => {
+            navigate(`/admin/coupons`);
+          },
+        },
+        {
+          key: "13",
+          label: "Add New Slider",
+          path: "/admin/coupons/create",
+          onClick: () => {
+            navigate("/admin/coupons/create");
+          },
+        },
+      ],
+    },
+    {
+      key: "14",
       icon: <UserOutlined />,
-      label: "Kullanıcı Listesi",
+      label: "User List",
       path: "/admin/users",
       onClick: () => {
         navigate(`/admin/users`);
       },
     },
     {
-      key: "12",
+      key: "15",
       icon: <ShoppingCartOutlined />,
-      label: "Siparişler",
+      label: "Orders",
       path: "/admin/orders",
       onClick: () => {
         navigate(`/admin/orders`);
       },
     },
     {
-      key: "13",
+      key: "16",
       icon: <RollbackOutlined />,
-      label: "Ana Sayfaya Git",
+      label: "Go to Home Page",
       onClick: () => {
         window.location.href = "/";
       },
@@ -192,7 +217,7 @@ const AdminLayout = ({ children }) => {
                 }}
               >
                 <h2>{getPageTitle()}</h2>
-                <h2>Admin Paneli</h2>
+                <h2>Admin Panel</h2>
               </div>
             </Header>
             <Content>

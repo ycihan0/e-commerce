@@ -8,6 +8,8 @@ const categoryRoute = require("./categories.js");
 const couponRoute = require("./coupons.js");
 const userRoute = require("./users.js");
 const paymentRoute = require("./payment.js");
+const sliderRoute = require("./sliders.js");
+
 
 
 //We use each route under the corresponding road.
@@ -18,5 +20,7 @@ router.use("/auth", authRoute);
 router.use("/coupons", couponRoute);
 router.use("/users", userRoute);
 router.use("/payment", paymentRoute);
+router.use("/slider", sliderRoute);
+
 
 module.exports = router;
