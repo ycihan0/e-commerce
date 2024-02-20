@@ -39,7 +39,10 @@ NextBtn.propTypes = {
 
 function PrevBtn({ onClick }) {
   return (
-    <div className="slider-buttons" style={{  justifyContent:"end", zIndex:"1"}}>
+    <div
+      className="slider-buttons"
+      style={{ justifyContent: "end", zIndex: "1" }}
+    >
       <button onClick={onClick}>
         <i className="bi bi-chevron-right"></i>
       </button>
@@ -83,18 +86,8 @@ const Hero = () => {
     fetchProducts();
   }, [apiUrl]);
 
-  const CustomNextArrow = (props) => {
-    const { onClick } = props;
-    return <button onClick={onClick}>Next</button>;
-  };
-
-  const CustomPrevArrow = (props) => {
-    const { onClick } = props;
-    return <button onClick={onClick}>Prev</button>;
-  };
-
   const sliderSettings = {
-    dots: false,
+    dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -102,51 +95,24 @@ const Hero = () => {
     prevArrow: <PrevBtn />,
     autoplaySpeed: 5000,
     autoplay: true,
+    appendDots: (dots) => (
+      <div className="slider">
+          <div className="slider-dots">
+            <button className="slider-dot"> {dots}</button>
+          </div>
+        </div>
+    )
   };
 
   return (
     <section className="slider">
-        {/* {currentSlide === 0 && <HeroItem imageSrc="img/slider/slider1.jpg" />}
-        {currentSlide === 1 && <HeroItem imageSrc="img/slider/slider2.jpg" />}
-        {currentSlide === 2 && <HeroItem imageSrc="img/slider/slider3.jpg" />} */}
+      <div className="slider-elements">
         <Slider {...sliderSettings}>
           {images.map((image) => (
             <HeroItem key={image._id} imageSrc={image.img} />
           ))}
         </Slider>
-        {/* <div className="slider-buttons">
-          <button onClick={prevSlide}>
-            <i className="bi bi-chevron-left"></i>
-          </button>
-          <button onClick={nextSlide}>
-            <i className="bi bi-chevron-right"></i>
-          </button>
-       
-        </div> */}
-        {/* <div className="slider-buttons">
-          <NextBtn/>
-          <PrevBtn />
-        </div> */}
-        {/* <div className="slider-dots">
-          <button
-            className={`slider-dot ${currentSlide === 0 ? "active" : ""}`}
-            onClick={() => setCurrentSlide(0)}
-          >
-            <span></span>
-          </button>
-          <button
-            className={`slider-dot ${currentSlide === 1 ? "active" : ""}`}
-            onClick={() => setCurrentSlide(1)}
-          >
-            <span></span>
-          </button>
-          <button
-            className={`slider-dot ${currentSlide === 2 ? "active" : ""}`}
-            onClick={() => setCurrentSlide(2)}
-          >
-            <span></span>
-          </button>
-        </div> */}
+      </div>
     </section>
   );
 };

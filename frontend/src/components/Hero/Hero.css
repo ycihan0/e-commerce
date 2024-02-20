@@ -79,6 +79,15 @@
   align-items: center;
   justify-content: center;
   column-gap: 6px;
+
+
+}
+
+.slider .slider-dots button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .slider .slider-dots .slider-dot {
@@ -90,14 +99,6 @@
 
 .slider .slider-dots .slider-dot:hover {
   opacity: 1;
-}
-
-.slider .slider-dots .slider-dot span {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  background-color: #f07423;
-  border-radius: 100%;
 }
 
 .slider .slider-dots .slider-dot.active {
@@ -127,3 +128,4 @@
     display: none !important;
   }
 }
+
