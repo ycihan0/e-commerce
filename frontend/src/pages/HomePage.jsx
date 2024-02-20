@@ -5,12 +5,12 @@ import Campaigns from "../components/Campaigns/Campaigns";
 import Blogs from "../components/Blogs/Blogs";
 import Brands from "../components/Brands/Brands";
 import CampaignSingle from "../components/CampaignSingle/CampaignSingle";
-import Sliders from "../components/Slider/Sliders";
+import Hero from "../components/Hero/Hero";
 
 const HomePage = () => {
   return (
     <React.Fragment>
-      <Sliders />
+      <Hero />
       <Categories />
       <Products />
       <Campaigns />
