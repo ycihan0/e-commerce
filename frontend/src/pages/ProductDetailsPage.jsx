@@ -30,7 +30,7 @@ const ProductDetailsPage = () => {
       setSingleProduct={setSingleProduct}
     />
   ) : (
-    <p>Ürün Yükleniyor</p>
+    <p>Loading Products</p>
   );
 };
 

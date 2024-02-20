@@ -80,17 +80,17 @@ router.delete("/:blogId", async (req, res) => {
 });
 
 //Search blogs by name
-router.get("/search/:blogName", async (req, res) => {
-  try {
-    const blogName = req.params.blogName;
-    const blogs = await Blog.find({
-      name:{$regex:blogName, $options:"i"}//regex belirli bir isme göre ara options ise büyük küçük harf zorunluluğu olmadan ara
-    })
-    res.status(200).json(blogs)
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Server error." });
-  }
-});
+// router.get("/search/:blogName", async (req, res) => {
+//   try {
+//     const blogName = req.params.blogName;
+//     const blogs = await Blog.find({
+//       name:{$regex:blogName, $options:"i"}//regex belirli bir isme göre ara options ise büyük küçük harf zorunluluğu olmadan ara
+//     })
+//     res.status(200).json(blogs)
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({ error: "Server error." });
+//   }
+// });
 
 module.exports = router;
