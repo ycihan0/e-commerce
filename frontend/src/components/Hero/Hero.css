@@ -43,10 +43,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
   padding: 0 30px;
- 
-
 }
 
 .slider-buttons button {
@@ -57,7 +54,7 @@
   background-color: white;
   opacity: 0.5;
   transition: 0.2s ease all;
-  z-index: 2;
+  z-index: 1;
 }
 
 .slider-buttons button:hover {
@@ -79,8 +76,6 @@
   align-items: center;
   justify-content: center;
   column-gap: 6px;
-
-
 }
 
 .slider .slider-dots button {
@@ -128,4 +123,3 @@
     display: none !important;
   }
 }
-

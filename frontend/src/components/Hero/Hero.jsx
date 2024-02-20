@@ -98,7 +98,7 @@ const Hero = () => {
     appendDots: (dots) => (
       <div className="slider">
           <div className="slider-dots">
-            <button className="slider-dot"> {dots}</button>
+            <ul className="slider-dot"> {dots}</ul>
           </div>
         </div>
     )
