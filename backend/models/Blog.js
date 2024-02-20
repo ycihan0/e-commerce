@@ -8,7 +8,7 @@ const ReviewSchema = mongoose.Schema(
     },
     { timestamps: true }
   );
-  
+
 const BlogSchema = mongoose.Schema(
   {
     img: { type: String, required: true },
@@ -22,5 +22,5 @@ const BlogSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const Product = mongoose.model("Product", ProductSchema);
-module.exports = Product;
+const Blog = mongoose.model("Blog", BlogSchema);
+module.exports = Blog;

@@ -20,10 +20,10 @@ import CouponPage from "./pages/Admin/Coupons/CouponPage";
 import CreateCouponPage from "./pages/Admin/Coupons/CreateCouponPage";
 import UpdateCouponPage from "./pages/Admin/Coupons/UpdateCouponPage";
 import Success from "./pages/Success";
-import "./App.css";
 import SliderPage from "./pages/Admin/Sliders/SliderPage";
 import UpdateSliderPage from "./pages/Admin/Sliders/UpdateSliderPage";
 import CreateSliderPage from "./pages/Admin/Sliders/CreateSliderPage";
+import "./App.css";
 function App() {
   return (
     <Routes>
