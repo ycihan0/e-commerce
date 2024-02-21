@@ -8,7 +8,8 @@ import {
   DashboardOutlined,
   ShoppingCartOutlined,
   AppstoreOutlined,
-  PicCenterOutlined
+  PicCenterOutlined,
+  PicLeftOutlined
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
@@ -40,7 +41,7 @@ const AdminLayout = ({ children }) => {
       path: "/",
       children: [
         {
-          key: "3",
+          key: "2.1",
           label: "Category List",
           path: "/admin/categories",
           onClick: () => {
@@ -48,7 +49,7 @@ const AdminLayout = ({ children }) => {
           },
         },
         {
-          key: "4",
+          key: "2.2",
           label: "Add New Category",
           path: "/admin/categories/create",
           onClick: () => {
@@ -58,13 +59,13 @@ const AdminLayout = ({ children }) => {
       ],
     },
     {
-      key: "5",
+      key: "3",
       icon: <LaptopOutlined />,
       label: "Products",
       path: "/",
       children: [
         {
-          key: "6",
+          key: "3.1",
           label: "Product List",
           path: "/admin/products",
           onClick: () => {
@@ -72,7 +73,7 @@ const AdminLayout = ({ children }) => {
           },
         },
         {
-          key: "7",
+          key: "3.2",
           label: "Add New Product",
           path: "/admin/products/create",
           onClick: () => {
@@ -82,13 +83,37 @@ const AdminLayout = ({ children }) => {
       ],
     },
     {
-      key: "8",
+      key: "4",
+      icon: <PicLeftOutlined />,
+      label: "Blogs",
+      path: "/",
+      children: [
+        {
+          key: "4.1",
+          label: "Blog List",
+          path: "/admin/blogs",
+          onClick: () => {
+            navigate(`/admin/blogs`);
+          },
+        },
+        {
+          key: "4.2",
+          label: "Add New Blog",
+          path: "/admin/blogs/create",
+          onClick: () => {
+            navigate("/admin/blogs/create");
+          },
+        },
+      ],
+    },
+    {
+      key: "5",
       icon: <BarcodeOutlined />,
       label: "Coupons",
       path: "/admin/coupons",
       children: [
         {
-          key: "9",
+          key: "5.1",
           label: "Coupon List",
           path: "/admin/coupons",
           onClick: () => {
@@ -96,7 +121,7 @@ const AdminLayout = ({ children }) => {
           },
         },
         {
-          key: "10",
+          key: "5.2",
           label: "Add New Coupon",
           path: "/admin/coupons/create",
           onClick: () => {
@@ -106,13 +131,13 @@ const AdminLayout = ({ children }) => {
       ],
     },
     {
-      key: "11",
+      key: "6",
       icon: <PicCenterOutlined />,
       label: "Hero",
       path: "/admin/sliders",
       children: [
         {
-          key: "12",
+          key: "6.1",
           label: "Slider List",
           path: "/admin/sliders",
           onClick: () => {
@@ -120,7 +145,7 @@ const AdminLayout = ({ children }) => {
           },
         },
         {
-          key: "13",
+          key: "6.2",
           label: "Add New Slider",
           path: "/admin/sliders/create",
           onClick: () => {
@@ -130,7 +155,7 @@ const AdminLayout = ({ children }) => {
       ],
     },
     {
-      key: "14",
+      key: "7",
       icon: <UserOutlined />,
       label: "User List",
       path: "/admin/users",
@@ -139,7 +164,7 @@ const AdminLayout = ({ children }) => {
       },
     },
     {
-      key: "15",
+      key: "8",
       icon: <ShoppingCartOutlined />,
       label: "Orders",
       path: "/admin/orders",
@@ -148,7 +173,7 @@ const AdminLayout = ({ children }) => {
       },
     },
     {
-      key: "16",
+      key: "9",
       icon: <RollbackOutlined />,
       label: "Go to Home Page",
       onClick: () => {
@@ -156,6 +181,7 @@ const AdminLayout = ({ children }) => {
       },
     },
   ];
+  
 
   const getActiveKey = () => {
     for (const item of menuItems) {

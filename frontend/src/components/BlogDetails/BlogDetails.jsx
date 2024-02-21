@@ -1,7 +1,9 @@
 import Reviews from "../Reviews/Reviews";
+import Proptypes from "prop-types";
 import "./BlogDetails.css";
 
-const BlogDetails = () => {
+const BlogDetails = ({singleBlog, setSingleBlog}) => {
+  console
   return (
     <section className="single-blog">
       <div className="container">
@@ -113,3 +115,8 @@ const BlogDetails = () => {
 };
 
 export default BlogDetails;
+
+BlogDetails.propTypes = {
+  singleBlog: Proptypes.object,
+  setSingleBlog: Proptypes.func
+};
