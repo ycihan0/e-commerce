@@ -3,10 +3,8 @@ import "./BlogItem.css";
 
 const BlogItem = ({ blogItem }) => {
   console.log(blogItem)
-  const { review } = blogItem;
-  const {  createdAt } = review;
   const options = { year: "numeric", month: "long", day: "numeric" };
-  const formattedDate = new Date(createdAt).toLocaleDateString(
+  const formattedDate = new Date(blogItem.createdAt).toLocaleDateString(
     "tr-TR",
     options
   );
@@ -18,7 +16,7 @@ const BlogItem = ({ blogItem }) => {
       </a>
       <div className="blog-info">
         <div className="blog-info-top">
-          <span>{formattedDate} </span>-<span>0 Comments</span>
+           <span>{formattedDate} </span>-<span>{blogItem.reviews.length} Comments</span> 
         </div>
         <div className="blog-info-center">
           <a href="#">Aliquam hendrerit mi metus</a>
