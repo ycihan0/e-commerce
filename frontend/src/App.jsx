@@ -23,9 +23,11 @@ import Success from "./pages/Success";
 import SliderPage from "./pages/Admin/Sliders/SliderPage";
 import UpdateSliderPage from "./pages/Admin/Sliders/UpdateSliderPage";
 import CreateSliderPage from "./pages/Admin/Sliders/CreateSliderPage";
-import "./App.css";
 import CreateBlogPage from "./pages/Admin/Blogs/CreateBlogPage";
 import UpdateBlogPage from "./pages/Admin/Blogs/UpdateBlogPage";
+import BlogPageList from "./pages/Admin/Blogs/BlogPageList";
+import "./App.css";
+
 function App() {
   return (
     <Routes>
@@ -47,7 +49,7 @@ function App() {
         <Route path="products" element={<ProductPage />} />
         <Route path="products/create" element={<CreateProductPage />} />
         <Route path="products/update/:id" element={<UpdateProductPage />} />
-        <Route path="blogs" element={<BlogPage />} />
+        <Route path="blogs" element={<BlogPageList />} />
         <Route path="blogs/create" element={<CreateBlogPage/>} />
         <Route path="blogs/update/:id" element={<UpdateBlogPage />} />
         <Route path="coupons" element={<CouponPage />} />
