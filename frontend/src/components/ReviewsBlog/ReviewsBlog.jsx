@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { message } from "antd";
 import ReviewFormBlog from "./ReviewFormBlog";
 
-const ReviewsBlog = ({ active, singleProduct, setSingleProduct }) => {
+const ReviewsBlog = ({  singleBlog, setSingleBlog }) => {
   const [users, setUsers] = useState([]);
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const thisReview = [];
@@ -26,7 +26,7 @@ const ReviewsBlog = ({ active, singleProduct, setSingleProduct }) => {
     };
     fetchUsers();
   }, [apiUrl]);
-  singleProduct && singleProduct.reviews.forEach((review) => {
+  singleBlog && singleBlog.reviews.forEach((review) => {
     const matchingUsers = users?.filter((user) => user._id === review.user);
 
     matchingUsers.forEach((matchingUser) => {
@@ -37,10 +37,10 @@ const ReviewsBlog = ({ active, singleProduct, setSingleProduct }) => {
     });
   });
   return (
-    <div className={`tab-panel-reviews ${active}`}>
-      {singleProduct && singleProduct.reviews.length > 0 ? (
+    <div className={`tab-panel-reviews`}>
+      {singleBlog && singleBlog.reviews.length > 0 ? (
         <>
-          <h3>2 reviews for Basic Colored Sweatpants With Elastic Hems</h3>
+          <h3>{singleBlog.reviews.length} reviews for {singleBlog.title}</h3>
           <div className="comments">
             <ol className="comment-list">
               {thisReview.map((item, index) => (
@@ -56,8 +56,8 @@ const ReviewsBlog = ({ active, singleProduct, setSingleProduct }) => {
       <div className="review-form-wrapper">
         <h2>Add a review</h2>
         <ReviewFormBlog
-          singleProduct={singleProduct}
-          setSingleProduct={setSingleProduct}
+          singleBlog={singleBlog}
+          setSingleBlog={setSingleBlog}
         />
       </div>
     </div>
@@ -67,7 +67,6 @@ const ReviewsBlog = ({ active, singleProduct, setSingleProduct }) => {
 export default ReviewsBlog;
 
 ReviewsBlog.propTypes = {
-  active: Proptypes.string,
-  singleProduct: Proptypes.object,
-  setSingleProduct: Proptypes.func,
+  singleBlog: Proptypes.object,
+  setSingleBlog: Proptypes.func,
 };

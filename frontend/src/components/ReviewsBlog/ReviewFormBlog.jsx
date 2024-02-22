@@ -2,7 +2,7 @@ import { useState } from "react";
 import Proptypes from "prop-types";
 import { message } from "antd";
 
-const ReviewFormBlog = ({ singleProduct, setSingleProduct }) => {
+const ReviewFormBlog = ({ singleBlog, setSingleBlog }) => {
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
   const user = localStorage.getItem("user")
@@ -22,7 +22,7 @@ const ReviewFormBlog = ({ singleProduct, setSingleProduct }) => {
     }
     const formData = {
       reviews: [
-        ...singleProduct.reviews,
+        ...singleBlog.reviews,
         {
           text: review,
           rating: parseInt(rating),
@@ -32,7 +32,7 @@ const ReviewFormBlog = ({ singleProduct, setSingleProduct }) => {
     };
 
     try {
-      const res = await fetch(`${apiUrl}/api/blogs/${singleProduct._id}`, {
+      const res = await fetch(`${apiUrl}/api/blogs/${singleBlog._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const ReviewFormBlog = ({ singleProduct, setSingleProduct }) => {
         return;
       }
       const data = await res.json();
-      setSingleProduct(data)
+      setSingleBlog(data)
       setReview("");
       setRating(0);
       message.success("youm added successfully");
@@ -145,6 +145,6 @@ const ReviewFormBlog = ({ singleProduct, setSingleProduct }) => {
 export default ReviewFormBlog;
 
 ReviewFormBlog.propTypes = {
-  singleProduct: Proptypes.object,
-  setSingleProduct: Proptypes.func
+  singleBlog: Proptypes.object,
+  setSingleBlog: Proptypes.func
 };

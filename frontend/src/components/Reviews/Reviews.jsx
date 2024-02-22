@@ -40,7 +40,7 @@ const Reviews = ({ active, singleProduct, setSingleProduct }) => {
     <div className={`tab-panel-reviews ${active}`}>
       {singleProduct && singleProduct.reviews.length > 0 ? (
         <>
-          <h3>2 reviews for Basic Colored Sweatpants With Elastic Hems</h3>
+          <h3>{singleProduct.reviews.length} reviews for {singleProduct.name}</h3>
           <div className="comments">
             <ol className="comment-list">
               {thisReview.map((item, index) => (

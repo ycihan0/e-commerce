@@ -37,7 +37,7 @@ const BlogDetails = ({ singleBlog, setSingleBlog }) => {
             ></p>
           </div>
         </article>
-        <ReviewsBlog singleProduct={singleBlog} setSingleProduct={setSingleBlog} active={activeTab}/>
+        <ReviewsBlog singleBlog={singleBlog} setSingleBlog={setSingleBlog} active={activeTab}/>
       </div>
     </section>
   );
