@@ -9,7 +9,8 @@ import {
   ShoppingCartOutlined,
   AppstoreOutlined,
   PicCenterOutlined,
-  PicLeftOutlined
+  PicLeftOutlined,
+  MailOutlined
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
@@ -132,12 +133,21 @@ const AdminLayout = ({ children }) => {
     },
     {
       key: "6",
+      icon:<MailOutlined />,
+      label: "Contacts",
+      path: "/admin/contacts",
+      onClick: () => {
+        navigate(`/admin/contacts`);
+      },
+    },
+    {
+      key: "7",
       icon: <PicCenterOutlined />,
       label: "Hero",
       path: "/admin/sliders",
       children: [
         {
-          key: "6.1",
+          key: "7.1",
           label: "Slider List",
           path: "/admin/sliders",
           onClick: () => {
@@ -145,7 +155,7 @@ const AdminLayout = ({ children }) => {
           },
         },
         {
-          key: "6.2",
+          key: "7.2",
           label: "Add New Slider",
           path: "/admin/sliders/create",
           onClick: () => {
@@ -155,7 +165,7 @@ const AdminLayout = ({ children }) => {
       ],
     },
     {
-      key: "7",
+      key: "8",
       icon: <UserOutlined />,
       label: "User List",
       path: "/admin/users",
@@ -164,7 +174,7 @@ const AdminLayout = ({ children }) => {
       },
     },
     {
-      key: "8",
+      key: "9",
       icon: <ShoppingCartOutlined />,
       label: "Orders",
       path: "/admin/orders",
@@ -173,7 +183,7 @@ const AdminLayout = ({ children }) => {
       },
     },
     {
-      key: "9",
+      key: "10",
       icon: <RollbackOutlined />,
       label: "Go to Home Page",
       onClick: () => {
