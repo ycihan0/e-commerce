@@ -10,6 +10,7 @@ const userRoute = require("./users.js");
 const paymentRoute = require("./payment.js");
 const sliderRoute = require("./sliders.js");
 const blogRoute = require("./blogs.js");
+const contactRoute = require("./contacts.js");
 
 
 
@@ -23,6 +24,8 @@ router.use("/users", userRoute);
 router.use("/payment", paymentRoute);
 router.use("/sliders", sliderRoute);
 router.use("/blogs", blogRoute);
+router.use("/contacts", contactRoute);
+
 
 
 
