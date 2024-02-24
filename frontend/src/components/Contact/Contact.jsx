@@ -12,7 +12,17 @@ const Contact = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          messages: [
+            {
+              name: values.name,
+              email: values.email,
+              subject: values.subject,
+              message: values.message,
+            },
+          ],
+        }),
       });
 
       if (response.ok) {
