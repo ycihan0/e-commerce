@@ -51,7 +51,6 @@ const ContactPageList = () => {
             responseContact.json(),
             responseInfo.json(),
           ]);
-console.log(dataInfo.adress)
           setDatasource(dataContact);
           form.setFieldsValue({
             googleSrc:dataInfo.googleSrc,
