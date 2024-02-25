@@ -10,7 +10,8 @@ import {
   AppstoreOutlined,
   PicCenterOutlined,
   PicLeftOutlined,
-  MailOutlined
+  MailOutlined,
+  InfoCircleOutlined
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
@@ -164,8 +165,19 @@ const AdminLayout = ({ children }) => {
         },
       ],
     },
+
     {
       key: "8",
+      icon: <InfoCircleOutlined />,
+      label: "Infos",
+      path: "/admin/infos",
+      onClick: () => {
+        navigate(`/admin/infos`);
+      },
+    },
+    
+    {
+      key: "9",
       icon: <UserOutlined />,
       label: "User List",
       path: "/admin/users",
@@ -174,7 +186,7 @@ const AdminLayout = ({ children }) => {
       },
     },
     {
-      key: "9",
+      key: "10",
       icon: <ShoppingCartOutlined />,
       label: "Orders",
       path: "/admin/orders",
@@ -183,7 +195,7 @@ const AdminLayout = ({ children }) => {
       },
     },
     {
-      key: "10",
+      key: "11",
       icon: <RollbackOutlined />,
       label: "Go to Home Page",
       onClick: () => {

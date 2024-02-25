@@ -28,6 +28,7 @@ import UpdateBlogPage from "./pages/Admin/Blogs/UpdateBlogPage";
 import BlogPageList from "./pages/Admin/Blogs/BlogPageList";
 import ContactPageList from "./pages/Admin/ContactPageList";
 import "./App.css";
+import InfoPage from "./pages/Admin/InfoPage";
 
 function App() {
   return (
@@ -61,8 +62,12 @@ function App() {
         <Route path="sliders/create" element={<CreateSliderPage />} />
         <Route path="sliders/update/:id" element={<UpdateSliderPage />} />
         <Route path="contacts" element={<ContactPageList />} />
+        <Route path="infos" element={<InfoPage />} />
+      
+ 
 
       </Route>
+    
     </Routes>
   );
 }

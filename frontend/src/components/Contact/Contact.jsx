@@ -6,23 +6,14 @@ const Contact = () => {
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   const onFinish = async (values) => {
+   
     try {
       const response = await fetch(`${apiUrl}/api/contacts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...values,
-          messages: [
-            {
-              name: values.name,
-              email: values.email,
-              subject: values.subject,
-              message: values.message,
-            },
-          ],
-        }),
+        body: JSON.stringify(values),
       });
 
       if (response.ok) {

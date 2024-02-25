@@ -1,15 +1,6 @@
-import {
-  Avatar,
-  Button,
-  Card,
-  Form,
-  Input,
-  List,
-  message,
-} from "antd";
+import { Avatar, Button, Card, Form, Input, List, message } from "antd";
 import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
-import { useParams } from "react-router-dom";
 
 const data = [
   {
@@ -22,12 +13,11 @@ const ContactPageList = () => {
   const [loading, setLoading] = useState(false);
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const [form] = Form.useForm();
-  const params = useParams();
-  const couponId = params.id;
 
+ 
   const onFinish = async (values) => {
     try {
-      const response = await fetch(`${apiUrl}/api/coupons/${couponId}`, {
+      const response = await fetch(`${apiUrl}/api/infos/65d7b7e580d9df61fc960eed`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -36,12 +26,12 @@ const ContactPageList = () => {
       });
 
       if (response.ok) {
-        message.success("category updated successfully");
+        message.success("adreses updated successfully");
       } else {
-        message.error("category updating error");
+        message.error("adreses updating error");
       }
     } catch (error) {
-      console.log("category updating error:", error);
+      console.log("info updating error:", error);
     } finally {
       setLoading(false);
     }
@@ -51,11 +41,22 @@ const ContactPageList = () => {
     const fetchContacts = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${apiUrl}/api/contacts`);
+        const [responseContact, responseInfo] = await Promise.all([
+          fetch(`${apiUrl}/api/contacts`),
+          fetch(`${apiUrl}/api/infos/65d7b7e580d9df61fc960eed`),
+        ]);
 
-        if (response.ok) {
-          const data = await response.json();
-          setDatasource(data);
+        if ((responseContact.ok || responseInfo.ok)) {
+          const [dataContact, dataInfo] = await Promise.all([
+            responseContact.json(),
+            responseInfo.json(),
+          ]);
+console.log(dataInfo.adress)
+          setDatasource(dataContact);
+          form.setFieldsValue({
+            googleSrc:dataInfo.googleSrc,
+            adress:dataInfo.adress
+          });
         } else {
           message.error("Coupon failed");
         }
@@ -66,8 +67,7 @@ const ContactPageList = () => {
       }
     };
     fetchContacts();
-  }, [apiUrl]);
-  console.log(dataSource);
+  }, [apiUrl,form]);
 
   return (
     <>
