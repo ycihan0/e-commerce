@@ -63,10 +63,7 @@ function App() {
         <Route path="sliders/update/:id" element={<UpdateSliderPage />} />
         <Route path="contacts" element={<ContactPageList />} />
         <Route path="infos" element={<InfoPage />} />
-      
- 
-
-      </Route>
+         </Route>
     
     </Routes>
   );

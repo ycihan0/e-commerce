@@ -5,16 +5,16 @@ import { useEffect, useState } from "react";
 const Contact = () => {
   const [form] = Form.useForm();
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
-  const [adress, setAdress] = useState([]);
+  const [dataInfo, setDataInfo] = useState([]);
 
   useEffect(() => {
     const fetchAdress = async () => {
       try {
-        const response = await fetch(`${apiUrl}/api/infos`);
+        const response = await fetch(`${apiUrl}/api/infos/65d7b7e580d9df61fc960eed`);
 
         if (response.ok) {
           const data = await response.json();
-          setAdress(data);
+          setDataInfo(data);
         } else {
           message.error("Product failed");
         }
@@ -52,7 +52,7 @@ const Contact = () => {
       <div className="contact-top">
         <div className="contact-map">
           <iframe
-            src={adress[0].googleSrc}
+            src={dataInfo.googleSrc}
             width="100%"
             height="500"
             style={{ border: "0" }}
@@ -143,18 +143,12 @@ const Contact = () => {
                   <p
                     className="product-description"
                     dangerouslySetInnerHTML={{
-                      __html: adress[0].adress,
+                      __html: dataInfo.adress,
                     }}
                   ></p>
                 </div>
               </div>
-              <div className="contact-info-item">
-                <div className="contact-info-texts">
-                  <strong> Opening Hours</strong>
-                  <p className="contact-date">Monday - Friday : 9am - 5pm</p>
-                  <p>Weekend Closed</p>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

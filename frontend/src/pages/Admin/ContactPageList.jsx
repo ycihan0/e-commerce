@@ -113,7 +113,7 @@ console.log(dataInfo.adress)
         </Form>
       </Card>
       <br></br>
-      <Card title="Card title" bordered={true}>
+      <Card title="Messages" bordered={true}>
         <List
           loading={loading}
           dataSource={data}
