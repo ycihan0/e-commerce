@@ -1,12 +1,32 @@
 import { Form, Input, message } from "antd";
 import "./Contact.css";
+import { useEffect, useState } from "react";
 
 const Contact = () => {
   const [form] = Form.useForm();
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
+  const [adress, setAdress] = useState([]);
+
+  useEffect(() => {
+    const fetchAdress = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/api/infos`);
+
+        if (response.ok) {
+          const data = await response.json();
+          setAdress(data);
+        } else {
+          message.error("Product failed");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchAdress();
+  }, [apiUrl]);
 
   const onFinish = async (values) => {
-   
     try {
       const response = await fetch(`${apiUrl}/api/contacts`, {
         method: "POST",
@@ -32,7 +52,7 @@ const Contact = () => {
       <div className="contact-top">
         <div className="contact-map">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.9633698339308!2d28.929441087738052!3d41.04793012296828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab1d021adf417%3A0xba3a3fdfdbb5f5d!2sEy%C3%BCp%20Sultan%20Camii!5e0!3m2!1str!2str!4v1665091191675!5m2!1str!2str"
+            src={adress[0].googleSrc}
             width="100%"
             height="500"
             style={{ border: "0" }}
@@ -120,15 +140,12 @@ const Contact = () => {
             <div className="contact-info">
               <div className="contact-info-item">
                 <div className="contact-info-texts">
-                  <strong> Clotya Store</strong>
-                  <p className="contact-street">
-                    Clotya Store Germany — 785 15h Street, Office 478/B Green
-                    Mall Berlin, De 81566
-                  </p>
-                  <a href="tel:Phone: +1 1234 567 88">Phone: +1 1234 567 88</a>
-                  <a href="mailto:Email: contact@example.com">
-                    Email: contact@example.com
-                  </a>
+                  <p
+                    className="product-description"
+                    dangerouslySetInnerHTML={{
+                      __html: adress[0].adress,
+                    }}
+                  ></p>
                 </div>
               </div>
               <div className="contact-info-item">
