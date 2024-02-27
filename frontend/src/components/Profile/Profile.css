@@ -20,11 +20,14 @@
 }
 
 .avatar {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   background-color: #ccc;
   border-radius: 50%;
   margin-bottom: 10px;
+}
+.avatar .img{
+  justify-content: center;
 }
 
 .user-info {
@@ -50,4 +53,30 @@ th, td {
 
 th {
   background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 600px) {
+  .profile-card {
+    flex-direction: column; /* Sıralı düzen */
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%; /* Genişlik 100% */
+    padding: 10px;
+  }
+
+  .avatar {
+    margin-bottom: 20px;
+  }
+}
+
+.no-order-found {
+  text-align: center;
+  font-size: 18px;
+  color: #777;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 20px;
 }
