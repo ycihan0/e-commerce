@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Input, message } from "antd";
-import { InfoCircleOutlined } from "@ant-design/icons";
 import "./Profile.css";
 import { Link } from "react-router-dom";
 
