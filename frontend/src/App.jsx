@@ -30,6 +30,7 @@ import ContactPageList from "./pages/Admin/ContactPageList";
 import "./App.css";
 import InfoPage from "./pages/Admin/InfoPage";
 import ProfilePage from "./pages/ProfilePage";
+import OrderDetail from "./components/OrderDetail/OrderDetail";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
       <Route path="/blog/:id" element={<BlogDetailsPage />} />
       <Route path="/success" element={<Success />} />
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/orderdetails" element={<OrderDetail />} />
       <Route path="/admin/*">
         <Route index element={<DashboardPage/>} />
         <Route path="users" element={<UserPage />} />

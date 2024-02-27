@@ -20,9 +20,9 @@ const Success = () => {
             <Link to={"/"} key="home">
               <Button type="primary">Go to Home</Button>
             </Link>,
-            // <Link to={"/admin/orders"} key="home">
-            //   <Button key="buy">My Orders</Button>
-            // </Link>,
+            <Link to={"/profile"} key="home">
+              <Button key="buy">My Orders</Button>
+            </Link>,
           ]}
         />
       </div>

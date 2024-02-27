@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Input, message } from "antd";
+import { InfoCircleOutlined } from "@ant-design/icons";
 import "./Profile.css";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const MY_STRIPE_SECRET_KEY = import.meta.env.VITE_API_STRIPE_SECRET_KEY;
@@ -152,6 +154,7 @@ const Profile = () => {
                 <tr>
                   <th>Order Number</th>
                   <th>Total Price</th>
+                  <th>Detail</th>
                 </tr>
               </thead>
               {userOrders.map((userOrder) => (
@@ -159,6 +162,9 @@ const Profile = () => {
                   <tr>
                     <td>{userOrder.created}</td>
                     <td>$ {userOrder.amount / 100}</td>
+                    <td style={{ textAlign: "center"}}>
+                    <Link to={"/orderdetails"} className="btn btn-primary btn-sm"  loading={loading}>show</Link>
+                    </td>
                   </tr>
                 </tbody>
               ))}
