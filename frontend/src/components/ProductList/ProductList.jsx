@@ -1,6 +1,7 @@
 import { message } from "antd";
 import { useEffect, useState } from "react";
 import ProductItem from "../Products/ProductItem";
+import Proptypes from "prop-types";
 import "./ProductList.css";
 
 const ProductList = ({categoryId}) => {
@@ -38,7 +39,7 @@ const ProductList = ({categoryId}) => {
       setFilteredProducts(products);
     }
   }, [categoryId, products]);
-console.log(categoryId)
+
   return (
     <section className="products">
       <div className="container">
@@ -61,3 +62,6 @@ console.log(categoryId)
 };
 
 export default ProductList;
+ProductList.propTypes = {
+    categoryId: Proptypes.string,
+  }

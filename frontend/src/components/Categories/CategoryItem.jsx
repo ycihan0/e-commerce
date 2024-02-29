@@ -20,6 +20,7 @@ const CategoryItem = ({category, setCategoryId}) => {
 export default CategoryItem;
 
 CategoryItem.propTypes = {
-  category: Proptypes.object
+  category: Proptypes.object,  
+  setCategoryId: Proptypes.func,
 };
 

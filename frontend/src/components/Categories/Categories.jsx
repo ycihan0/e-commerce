@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import "./Categories.css";
 import CategoryItem from "./CategoryItem";
 import { message } from "antd";
+import Proptypes from "prop-types";
+import "./Categories.css";
 
 const Categories = ({setCategoryId}) => {
   const [categories, setCategories] = useState([]);
@@ -43,3 +44,6 @@ const Categories = ({setCategoryId}) => {
 };
 
 export default Categories;
+Categories.propTypes = {
+  setCategoryId: Proptypes.func,
+}
