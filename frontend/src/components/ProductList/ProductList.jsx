@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import ProductItem from "../Products/ProductItem";
 import "./ProductList.css";
 
-const ProductList = () => {
+const ProductList = ({categoryId}) => {
   const [products, setProducts] = useState([]);
-
+  const [filteredProducts, setFilteredProducts] = useState(products);
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
@@ -25,7 +25,20 @@ const ProductList = () => {
     };
 
     fetchProducts();
+   
   }, [apiUrl]);
+ 
+  useEffect(() => {
+    if (categoryId !== "") {
+      // Eğer bir kategori seçildiyse filtreleme işlemi yap
+      const filtered = products.filter((product) => product.category === categoryId);
+      setFilteredProducts(filtered);
+    } else {
+      // Eğer kategori seçimi yoksa tüm ürünleri göster
+      setFilteredProducts(products);
+    }
+  }, [categoryId, products]);
+console.log(categoryId)
   return (
     <section className="products">
       <div className="container">
@@ -36,7 +49,7 @@ const ProductList = () => {
         <div className="product-wrapper product-carousel2">
           <div className="glide__track">
             <div className="product-list glide__slides">
-              {products.map((product) => (
+              {filteredProducts.map((product) => (
                 <ProductItem productItem={product} key={product._id} />
               ))}
             </div>

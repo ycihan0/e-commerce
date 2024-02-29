@@ -1,6 +1,6 @@
 import Proptypes from "prop-types";
 import "./CategoryItem.css"
-const CategoryItem = ({category}) => {
+const CategoryItem = ({category, setCategoryId}) => {
 
   return (
     <li className="category-item">
@@ -9,6 +9,7 @@ const CategoryItem = ({category}) => {
           src={category.img}
           alt=""
           className="category-image"
+          onClick={()=>setCategoryId(category._id)}
         />
         <span className="category-title">{category.name}</span>
       </a>

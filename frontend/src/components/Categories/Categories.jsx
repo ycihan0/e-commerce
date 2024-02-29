@@ -3,7 +3,7 @@ import "./Categories.css";
 import CategoryItem from "./CategoryItem";
 import { message } from "antd";
 
-const Categories = () => {
+const Categories = ({setCategoryId}) => {
   const [categories, setCategories] = useState([]);
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -34,7 +34,7 @@ const Categories = () => {
           <p>Summer Collection New Morden Design</p>
         </div>
         <ul className="category-list">
-          {categories.map((category)=>(<CategoryItem  key={category._id} category={category}/>))}
+          {categories.map((category)=>(<CategoryItem  key={category._id} category={category} setCategoryId={setCategoryId}/>))}
           
         </ul>
       </div>
