@@ -11,7 +11,7 @@ import {
   PicCenterOutlined,
   PicLeftOutlined,
   MailOutlined,
-  InfoCircleOutlined
+  PictureOutlined
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
@@ -168,7 +168,7 @@ const AdminLayout = ({ children }) => {
 
     {
       key: "8",
-      icon: <InfoCircleOutlined />,
+      icon: <PictureOutlined />,
       label: "Logo",
       path: "/admin/infos",
       onClick: () => {

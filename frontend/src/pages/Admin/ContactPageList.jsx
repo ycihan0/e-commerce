@@ -17,7 +17,7 @@ const ContactPageList = () => {
  
   const onFinish = async (values) => {
     try {
-      const response = await fetch(`${apiUrl}/api/infos/65d7b7e580d9df61fc960eed`, {
+      const response = await fetch(`${apiUrl}/api/infos/65e5be0b91b076f24be3a64a`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const ContactPageList = () => {
       try {
         const [responseContact, responseInfo] = await Promise.all([
           fetch(`${apiUrl}/api/contacts`),
-          fetch(`${apiUrl}/api/infos/65d7b7e580d9df61fc960eed`),
+          fetch(`${apiUrl}/api/infos/65e5be0b91b076f24be3a64a`),
         ]);
 
         if ((responseContact.ok || responseInfo.ok)) {

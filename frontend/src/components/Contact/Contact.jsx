@@ -10,13 +10,13 @@ const Contact = () => {
   useEffect(() => {
     const fetchAdress = async () => {
       try {
-        const response = await fetch(`${apiUrl}/api/infos/65d7b7e580d9df61fc960eed`);
+        const response = await fetch(`${apiUrl}/api/infos/65e5be0b91b076f24be3a64a`);
 
         if (response.ok) {
           const data = await response.json();
           setDataInfo(data);
         } else {
-          message.error("Product failed");
+          message.error("Contact failed");
         }
       } catch (error) {
         console.log(error);

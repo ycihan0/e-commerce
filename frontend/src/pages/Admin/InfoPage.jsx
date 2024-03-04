@@ -8,7 +8,7 @@ const InfoPage = () => {
   const onFinish = async (values) => {
     try {
       const response = await fetch(
-        `${apiUrl}/api/infos/65e5b1b0a071aaacf64f73de`,
+        `${apiUrl}/api/infos/65e5be0b91b076f24be3a64a`,
         {
           method: "PUT",
           headers: {
@@ -32,7 +32,7 @@ const InfoPage = () => {
     const fetchInfos = async () => {
       try {
         const response = await fetch(
-          `${apiUrl}/api/infos/65e5b1b0a071aaacf64f73de`
+          `${apiUrl}/api/infos/65e5be0b91b076f24be3a64a`
         );
 
         if (response.ok) {
@@ -48,7 +48,7 @@ const InfoPage = () => {
       }
     };
     fetchInfos();
-  }, [apiUrl]);
+  }, [apiUrl,form]);
 
   return (
     <Card title="Adress" bordered={true}>

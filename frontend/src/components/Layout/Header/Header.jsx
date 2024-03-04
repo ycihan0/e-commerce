@@ -1,13 +1,37 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Proptypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 import { CartContext } from "../../../context/CartProvider";
 import "./Header.css";
+import { message } from "antd";
 
 const Header = ({ setIsSearchShow }) => {
   const { cartItems } = useContext(CartContext);
   const user = localStorage.getItem("user");
   const { pathname } = useLocation();
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+  const [dataSource, setDataSource] = useState([]);
+
+  useEffect(() => {
+    const fetchInfos = async () => {
+      try {
+        const response = await fetch(
+          `${apiUrl}/api/infos/65e5be0b91b076f24be3a64a`
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          setDataSource(data)
+        } else {
+          message.error("Info failed");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchInfos();
+  }, [apiUrl]);
+
   return (
     <header>
       <div className="global-notification">
@@ -27,7 +51,7 @@ const Header = ({ setIsSearchShow }) => {
             </div>
             <div className="header-left">
               <Link to={"/"} className="logo">
-                <img src="./img/logo.png" className="logo-pic"/>
+                <img src={dataSource.logo} className="logo-pic" />
               </Link>
             </div>
             <div className="header-center" id="sidebar">
@@ -211,7 +235,10 @@ const Header = ({ setIsSearchShow }) => {
             </div>
             <div className="header-right">
               <div className="header-right-links">
-                <Link to={user ? "/profile" : "/auth"} className="header-account">
+                <Link
+                  to={user ? "/profile" : "/auth"}
+                  className="header-account"
+                >
                   <i className="bi bi-person"></i>
                 </Link>
                 <button
