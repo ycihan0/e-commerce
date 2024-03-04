@@ -169,7 +169,7 @@ const AdminLayout = ({ children }) => {
     {
       key: "8",
       icon: <InfoCircleOutlined />,
-      label: "Infos",
+      label: "Logo",
       path: "/admin/infos",
       onClick: () => {
         navigate(`/admin/infos`);

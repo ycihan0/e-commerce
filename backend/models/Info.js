@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const InfoSchema = mongoose.Schema(
   {
-    googleSrc: { type: String, required: true },
-    adress: { type: String, required: true },
+    logo: { type: String, required: true }
   },
   { timestamps: true }
 );
