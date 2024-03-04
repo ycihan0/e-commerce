@@ -6,7 +6,7 @@ import CartProgress from "./CartProgress";
 import CartTable from "./CartTable";
 import CartTotals from "./CartTotals";
 const Cart = () => {
-  const { cartItems, addToCart } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
   return (
     <section className="cart-page">
       <div className="container">
@@ -29,7 +29,7 @@ const Cart = () => {
             </div>
           </div>
         ) : (
-          <h2>There are no items in your cart.</h2>
+          <h2>There is no item in your cart.</h2>
         )}
       </div>
     </section>

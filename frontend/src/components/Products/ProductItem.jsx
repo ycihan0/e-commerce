@@ -17,7 +17,7 @@ const ProductItem = ({ productItem }) => {
 
   return (
     <div className="product-item glide__slide glide__slide--active">
-      <div className="product-image">
+      <div className="product-image" >
         <a href="#">
           <img src={productItem.img[0]} alt="" className="img1" />
           <img src={productItem.img[1]} alt="" className="img2" />

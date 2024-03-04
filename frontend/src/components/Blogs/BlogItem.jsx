@@ -22,11 +22,10 @@ const BlogItem = ({ blogItem }) => {
         <div className="blog-info-center">
           <a href="#">Aliquam hendrerit mi metus</a>
         </div>
-        <Link to={`${blogItem._id}`}>
-          <div className="blog-info-bottom">
-            <a href="#">Read More</a>
-          </div>
-        </Link>
+
+        <div className="blog-info-bottom">
+          <Link to={`${blogItem._id}`}>Read More</Link>
+        </div>
       </div>
     </li>
   );

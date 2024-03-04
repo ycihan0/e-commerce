@@ -8,7 +8,6 @@ const Profile = () => {
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const [form] = Form.useForm();
   const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     oldPassword: "",
     newPassword: "",
@@ -29,10 +28,9 @@ const Profile = () => {
   );
 
   const onFinish = async () => {
-    setLoading(true);
     if (formData.newPassword !== formData.newPasswordAgain) {
       message.error("New passwords do not match");
-      setLoading(false);
+
       return;
     }
     try {
@@ -51,14 +49,11 @@ const Profile = () => {
     } catch (error) {
       console.error("Password update failed:", error);
       message.error("Password update failed");
-    } finally {
-      setLoading(false);
     }
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
       try {
         const response = await fetch(
           ` https://api.stripe.com/v1/payment_intents`,
@@ -76,13 +71,13 @@ const Profile = () => {
         }
       } catch (error) {
         console.log(error);
-      } finally {
-        setLoading(false);
       }
     };
     fetchData();
   }, [MY_STRIPE_SECRET_KEY]);
-
+  const goToAdmin = () => {
+    window.location.href = "/admin";
+  };
   return (
     <div className="profile-page">
       <div className="profile-card">
@@ -92,6 +87,13 @@ const Profile = () => {
             <h2>User Information</h2>
             <p>Name: {user.username}</p>
             <p>Email: {user.email}</p>
+            {user.role === "admin" ? (
+              <Button onClick={goToAdmin} type="primary" htmlType="submit">
+                Admin Panel
+              </Button>
+            ) : (
+              ""
+            )}
             <div style={{ maxWidth: "600px", margin: "auto" }}>
               <br></br>
               <h3>Change Password</h3>
@@ -135,7 +137,7 @@ const Profile = () => {
                   />
                 </Form.Item>
                 <Form.Item>
-                  <Button type="primary" htmlType="submit" loading={loading}>
+                  <Button type="primary" htmlType="submit">
                     Update Password
                   </Button>
                 </Form.Item>
@@ -161,8 +163,13 @@ const Profile = () => {
                   <tr>
                     <td>{userOrder.created}</td>
                     <td>$ {userOrder.amount / 100}</td>
-                    <td style={{ textAlign: "center"}}>
-                    <Link to={"/orderdetails"} className="btn btn-primary btn-sm"  loading={loading}>show</Link>
+                    <td style={{ textAlign: "center" }}>
+                      <Link
+                        to={"/orderdetails"}
+                        className="btn btn-primary btn-sm"
+                      >
+                        show
+                      </Link>
                     </td>
                   </tr>
                 </tbody>

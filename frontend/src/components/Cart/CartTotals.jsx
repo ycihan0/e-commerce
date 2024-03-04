@@ -63,7 +63,7 @@ const CartTotals = () => {
       setLoading(false)
     }
   };
-console.log(cartItems)
+
   return (
     <div className="cart-totals">
       <h2>Cart totals</h2>
