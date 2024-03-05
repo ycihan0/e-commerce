@@ -11,6 +11,7 @@ const Header = ({ setIsSearchShow }) => {
   const { pathname } = useLocation();
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const [dataSource, setDataSource] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] = useState({left:-1000});
 
   useEffect(() => {
     const fetchInfos = async () => {
@@ -21,7 +22,7 @@ const Header = ({ setIsSearchShow }) => {
 
         if (response.ok) {
           const data = await response.json();
-          setDataSource(data)
+          setDataSource(data);
         } else {
           message.error("Info failed");
         }
@@ -31,6 +32,14 @@ const Header = ({ setIsSearchShow }) => {
     };
     fetchInfos();
   }, [apiUrl]);
+
+  const openMenu = () => {
+    setIsMenuOpen({left:0});
+  };
+
+  const closeMenu=()=>{
+    setIsMenuOpen({left:-1000})
+  }
 
   return (
     <header>
@@ -46,15 +55,16 @@ const Header = ({ setIsSearchShow }) => {
       <div className="header-row">
         <div className="container">
           <div className="header-wrapper">
-            <div className="header-mobile">
+            <div className="header-mobile" onClick={openMenu}>
               <i className="bi bi-list" id="btn-menu"></i>
             </div>
+          
             <div className="header-left">
               <Link to={"/"} className="logo">
                 <img src={dataSource.logo} className="logo-pic" />
               </Link>
             </div>
-            <div className="header-center" id="sidebar">
+            <div className="header-center" style={isMenuOpen}>
               <nav className="navigation">
                 <ul className="menu-list">
                   <li className="menu-list-item">
@@ -231,7 +241,7 @@ const Header = ({ setIsSearchShow }) => {
                   </li>
                 </ul>
               </nav>
-              <i className="bi-x-circle" id="close-sidebar"></i>
+              <i className="bi-x-circle" onClick={closeMenu}></i>
             </div>
             <div className="header-right">
               <div className="header-right-links">
