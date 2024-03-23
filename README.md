@@ -38,6 +38,7 @@ Click to see the demo👉 https://cihan-project-trendify.netlify.app/
 - npm install
 - npm run dev for frontend, npm start for backend
 
-![adminPanel](https://github.com/ycihan0/e-commerce/assets/133245392/8a043f8b-09d3-4472-ae3f-336ccdecd3e6)
+![adminPanel](https://github.com/ycihan0/e-commerce/assets/133245392/da7b3c76-af72-4984-acb2-aebdd31a2e08)
+
 
 
